@@ -1,0 +1,12 @@
+class Solution:
+    def topKFrequent(self,arr,k):
+        seen={}
+        for i in arr:
+            if i in seen:
+                seen[i]+=1
+            else:
+                seen[i]=1
+        freq=sorted(seen,key=lambda x:seen[x],reverse=True)
+        return freq[:k]
+        
+        
