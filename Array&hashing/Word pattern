@@ -1,0 +1,20 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        words=s.split()
+        if len(pattern)!=len(words):
+            return False
+        seen=set()
+        map1={}
+        for i in range(len(pattern)):
+            c1=pattern[i]
+            c2=words[i]
+            if c1 in map1:  
+                if map1[c1]!=c2:
+                    return False
+            else:
+                if c2 in seen:
+                    return False
+                map1[c1]=c2
+                seen.add(c2)
+        return True
+        
