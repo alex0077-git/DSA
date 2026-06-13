@@ -1,0 +1,13 @@
+class Solution:
+    def maxArea(self, arr):
+        low=0
+        high=len(arr)-1
+        maxarea=0
+        while low<high:
+            area=min(arr[low],arr[high])*(high-low)
+            maxarea=max(area,maxarea)
+            if arr[low]<arr[high]:
+                low+=1
+            else:
+                high-=1
+        return maxarea
