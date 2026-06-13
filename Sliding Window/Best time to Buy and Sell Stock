@@ -1,0 +1,17 @@
+class Solution:
+    def maxProfit(self, arr):
+        n=len(arr)
+        maxx=0
+        left=0
+        right=1
+        while right<n:
+            if arr[left]<arr[right]:
+                profit=arr[right]-arr[left]
+                maxx=max(profit,maxx)
+            else:
+                left=right
+            right+=1
+        return maxx
+
+
+
