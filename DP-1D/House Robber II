@@ -1,0 +1,22 @@
+class Solution:
+    def rob(self, arr: List[int]) -> int:
+        n=len(arr)
+        if n==0:
+            return 0
+        if n==1:
+            return arr[0]
+        def robber(houses):
+            n1=len(houses)
+            if n1==0:
+                return 0
+            if n1==1:
+                return houses[0]
+            dp=[0]*(n1+1)
+            dp[0]=houses[0]
+            dp[1]=max(houses[0],houses[1])
+            for i in range(2,n1):
+                dp[i]=max(dp[i-1],houses[i]+dp[i-2])
+            return dp[n1-1]
+        max1=robber(arr[:-1])
+        max2=robber(arr[1:])
+        return max(max1,max2)
