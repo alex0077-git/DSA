@@ -1,0 +1,21 @@
+class Solution:
+    def trap(self,arr):
+        low=0
+        high=len(arr)-1
+        total=0
+        lowmax=arr[low]
+        highmax=arr[high]
+        while low<high:
+            if lowmax<highmax:
+                low+=1
+                if lowmax<arr[low]:
+                    lowmax=arr[low]
+                else:
+                    total+=lowmax-arr[low]
+            else:
+                high-=1
+                if highmax<arr[high]:
+                    highmax=arr[high]
+                else:
+                    total+=highmax-arr[high]
+        return total
