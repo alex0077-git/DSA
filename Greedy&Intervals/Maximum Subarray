@@ -1,0 +1,10 @@
+class Solution:
+    def maxSubArray(self, arr):
+        current=0
+        maxx=float('-inf')
+        for i in range(len(arr)):
+            current+=arr[i]
+            maxx=max(maxx,current)
+            if current<0:
+                current=0
+        return maxx
