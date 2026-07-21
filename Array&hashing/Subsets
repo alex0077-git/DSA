@@ -1,0 +1,11 @@
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        result=[[]]
+        for i in nums:
+            newsubset=[]
+            for j in result:
+                newsubset.append(j+[i])
+            result.extend(newsubset)
+        return result
+
+        
