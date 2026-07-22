@@ -1,0 +1,12 @@
+def minimumSwaps(arr):
+    n=len(arr)
+    count=0
+    i=0
+    while i<n:
+        if arr[i] != i+1:
+            correct=arr[i]-1
+            arr[i],arr[correct]=arr[correct],arr[i]
+            count+=1
+        else:
+            i+=1
+    return count
