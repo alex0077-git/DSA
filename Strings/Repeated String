@@ -1,0 +1,17 @@
+def repeatedString(s, n):
+    m = len(s)
+    
+    # 1. Count 'a's in the full string
+    c = s.count('a')
+    
+    # 2. Find how many full times the string repeats
+    full_repeats = n // m
+    
+    # 3. Find the length of the leftover characters
+    remainder = n % m
+    
+    # 4. Count 'a's in just the leftover portion
+    leftover_as = s[:remainder].count('a')
+    
+    # Total is the full repeats plus the leftovers
+    return (c * full_repeats) + leftover_as
