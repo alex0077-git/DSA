@@ -1,0 +1,13 @@
+def alternatingCharacters(s):
+    # Write your code here
+    n=len(s)
+    count=0
+    for char in range(n):
+        if s[char]=='A'  and char+1<(n):
+            if s[char+1]!='B':
+                count+=1
+                
+        elif s[char]=='B'  and char+1<(n):
+            if s[char+1]!='A':
+                count+=1
+    return count
