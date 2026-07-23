@@ -1,0 +1,28 @@
+def isValid(s):
+    # Write your code here
+    freq={}
+    for char in s:
+        if char in freq:
+            freq[char]+=1
+        else:
+            freq[char]=1
+    li=list(freq.values())
+    l=set(li)
+    
+    if len(l)==1:
+        return "YES"
+    elif len(l)==2:
+        l1=list(l)
+        f1=l1[0]
+        f2=l1[1]
+        
+        count1=li.count(f1)
+        count2=li.count(f2)
+        
+        if (f1==1 and count1==1) or (f2==1 and count2==1):
+            return "YES"
+            
+        elif (f1-f2==1 and count1==1) or (f2-f1==1 and count2==1):
+            return "YES"
+            
+    return "NO"
