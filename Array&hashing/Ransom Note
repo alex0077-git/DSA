@@ -1,0 +1,14 @@
+def checkMagazine(magazine, note):
+    # Write your code here
+    magdict={}
+    for word in magazine:
+        if word in magdict:
+            magdict[word]+=1
+        else:
+            magdict[word]=1
+    for word in note:
+        if word not in magazine or magdict[word]==0:
+            print("No")
+            return
+        magdict[word]-=1
+    print("Yes")
