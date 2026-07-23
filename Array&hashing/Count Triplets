@@ -1,0 +1,13 @@
+def countTriplets(arr, r):
+    pairs={}
+    singles={}
+    count=0
+    for num in arr:
+        if num in pairs:
+            count+=pairs[num]
+        if num in singles:
+            nextnum=num*r
+            pairs[nextnum]=pairs.get(nextnum,0)+singles[num]
+        nextnum=num*r
+        singles[nextnum]=singles.get(nextnum,0)+1
+    return count
