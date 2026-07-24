@@ -1,0 +1,11 @@
+def pairs(k, arr):
+    # Write your code here
+    count=0
+    seen=set()
+    for num in arr:
+        if num-k in seen:
+            count+=1
+        if num+k in seen:
+            count+=1
+        seen.add(num)
+    return count
