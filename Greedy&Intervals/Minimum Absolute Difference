@@ -1,0 +1,10 @@
+def minimumAbsoluteDifference(arr):
+    # Write your code here
+    n=len(arr)
+    m=float('inf')
+    arr.sort()
+    for i in range(n-1):
+        mi=arr[i+1]-arr[i]
+        m=min(mi,m)
+    return m
+                
