@@ -1,0 +1,14 @@
+def isBalanced(s):
+    # Write your code here
+    stack=[]
+    matches={')':'(',']':'[','}':'{'}
+    for ch in s:
+        if ch in '([{':
+            stack.append(ch)
+        elif ch in matches:
+            if not stack or stack.pop()!=matches[ch]:
+                return "NO"
+    if len(stack)==0:
+        return "YES"
+    else:
+        return "NO"
