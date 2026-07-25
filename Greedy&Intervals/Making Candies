@@ -1,0 +1,37 @@
+def minimumPasses(m, w, p, n):
+    candies=0
+    current=0
+    bestdays=float('inf')
+    
+    while current<n:
+        
+        waitdays=candies+(n-current+(m*w)-1)//(m*w)
+        if waitdays<bestdays:
+            bestdays=waitdays
+        
+        if current<p:
+            jumpdays=(p-current+(m*w)-1)//(m*w)
+            current+=m*w*jumpdays
+            candies+=jumpdays
+        else:
+            current+=m*w
+            candies+=1
+        if current>=n:
+            break
+        
+        purchase=current//p
+        current-=purchase*p
+            
+        if m<w:
+            diff=min(purchase,w-m)
+            m+=diff
+            purchase-=diff
+        else:
+            diff=min(purchase,m-w)
+            w+=diff
+            purchase-=diff
+        
+        m+=purchase//2
+        w+=purchase-(purchase//2)
+        
+    return min(bestdays,candies)
