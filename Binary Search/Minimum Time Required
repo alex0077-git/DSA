@@ -1,0 +1,18 @@
+def minTime(machines, goal):
+    machines.sort()
+    
+    low=(goal//len(machines))*machines[0]
+    high=goal*machines[-1]
+    days=high
+    while low<=high:
+        mid=low+(high-low)//2
+        current=0
+        for i in machines:
+            current+=mid//i
+        if current>=goal:
+            days=mid
+            high=mid-1
+        else:
+            low=mid+1
+    return days
+            
