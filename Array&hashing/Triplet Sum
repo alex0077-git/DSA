@@ -1,0 +1,17 @@
+def triplets(a, b, c):
+    a=sorted(list(set(a)))
+    b=sorted(list(set(b)))
+    c=sorted(list(set(c)))
+    
+    i,j,triplet=0,0,0
+    
+    for q in b:
+        
+        while i<len(a) and a[i]<=q:
+            i+=1
+        while j<len(c) and c[j]<=q:
+            j+=1
+            
+        triplet+=i*j
+    
+    return triplet
