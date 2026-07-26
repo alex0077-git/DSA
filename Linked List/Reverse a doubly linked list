@@ -1,0 +1,14 @@
+def reverse(head):
+    # Write your code here
+    if not head:
+        return head
+    current=head
+    newhead=None
+    while current:
+        current.next, current.prev=current.prev,current.next
+       
+        
+        newhead=current
+        current=current.prev
+        
+    return newhead
