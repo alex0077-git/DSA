@@ -1,0 +1,11 @@
+def sockMerchant(n, ar):
+    # Write your code here
+    unpaired=set()
+    count=0
+    for i in range(n):
+        if ar[i] in unpaired:
+            count+=1
+            unpaired.remove(ar[i])
+        else:
+            unpaired.add(ar[i])
+    return count
