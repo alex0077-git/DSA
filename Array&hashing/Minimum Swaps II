@@ -1,0 +1,25 @@
+class Solution:
+	def minSwaps(self, arr):
+		# Code here
+	    n=len(arr)
+	    arrpos=[(arr[i],i) for i in range(n)]
+	    arrpos.sort(key=lambda x:x[0])
+	    
+	    visited=[False]*n
+	    swap=0
+	    for i in range(n):
+	        if visited[i] or arrpos[i][1]==i:
+	            continue
+	        
+	        cycle=0
+	        j=i
+	        while not visited[j]:
+	            visited[j]=True
+	            j=arrpos[j][1]
+	            cycle+=1
+	        if cycle>0:
+	            swap+=(cycle-1)
+	    return swap
+	            
+		        
+		
