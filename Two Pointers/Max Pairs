@@ -1,0 +1,21 @@
+def maxPairs(skillLevel, minDiff):
+    n = len(skillLevel)
+    skillLevel.sort()
+    
+    count = 0
+    
+    half = (n + 1) // 2
+    left = 0
+    right = half
+    
+    while left < half and right < n:
+        
+        if skillLevel[right] - skillLevel[left] >= minDiff:
+            count += 1
+            left += 1
+            right += 1
+       
+        else:
+            right += 1
+            
+    return count
