@@ -1,0 +1,12 @@
+def arrayManipulation(n, queries):
+    # Write your code here
+    dp=[0]*(n+2)
+    for a,b,k in queries:
+        dp[a]+=k
+        dp[b+1]-=k
+    current=0
+    maxx=0
+    for i in range(1,n+1):
+        current+=dp[i]
+        maxx=max(maxx,current)
+    return maxx
