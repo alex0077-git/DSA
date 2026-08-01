@@ -1,0 +1,15 @@
+def pair(s,arr):
+    n=len(arr)
+    count=0
+    for i in range(n):
+        for j in range(i+1,n):
+            a=arr[i]
+            b=arr[j]
+            if ((2*min(a,b))+max(a,b))==s:
+                count+=1
+    return count
+       
+    
+s=int(input())
+arr=list(map(int,input().split()))
+print(pair(s,arr))
