@@ -1,0 +1,13 @@
+def minsum(arr):
+    n=len(arr)
+    m=n//2
+    first=arr[:m]
+    second=arr[m:]
+    first.sort()
+    second.sort()
+    ans=0
+    for i, j in zip(first,second):
+        ans+=abs(j-i)
+    return ans
+arr=list(map(int,input().split()))
+print(minsum(arr))
