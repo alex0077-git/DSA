@@ -1,0 +1,15 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        total=0
+        for num in nums:
+            total^=num
+
+        diff=total&(-total)
+        a=0
+        b=0
+        for num in nums:
+            if diff&num:
+                a^=num
+            else:
+                b^=num
+        return [a,b]
