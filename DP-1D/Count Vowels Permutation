@@ -1,0 +1,15 @@
+class Solution:
+    def countVowelPermutation(self, n: int) -> int:
+        MOD=10**9+7
+
+        a=e=i=o=u=1
+
+        for _ in range(n-1):
+            newa=(e+i+u)%MOD
+            newe=(a+i)%MOD
+            newi=(e+o)%MOD
+            newo=(i)%MOD
+            newu=(i+o)%MOD
+
+            a,e,i,o,u=newa,newe,newi,newo,newu
+        return (a+e+i+o+u)%MOD
