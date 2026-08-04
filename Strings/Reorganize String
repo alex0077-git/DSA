@@ -1,0 +1,29 @@
+from collections import Counter
+class Solution:
+    def reorganizeString(self, s: str) -> str:
+            char_count=Counter(s)
+            max_char=max(char_count,key=char_count.get)
+            max_count=char_count[max_char]
+
+            n=len(s)
+            if (n+1)//2<max_count:
+                return ""
+            
+            result=[""]*n
+            index=0
+
+            while char_count[max_char]>0:
+                result[index]=max_char
+                char_count[max_char]-=1
+                index+=2
+            
+            for char,count in char_count.items():
+                while count>0:
+                    if index>=n:
+                        index=1
+                    result[index]=char
+                    count-=1
+                    index+=2
+
+            return "".join(result)
+       
