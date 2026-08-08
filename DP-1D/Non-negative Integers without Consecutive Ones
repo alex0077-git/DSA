@@ -1,0 +1,25 @@
+class Solution:
+    def findIntegers(self, n: int) -> int:
+        dp=[0]*32
+        dp[0]=1
+        dp[1]=2
+        for i in range(2,32):
+            dp[i]=dp[i-1]+dp[i-2]
+        
+        binary_n=bin(n)[2:]
+        length=len(binary_n)
+
+        ans=0
+        prev=False
+
+        for i,bit in enumerate(binary_n):
+            k=length-i
+            if bit=='1':
+                ans+=dp[k-1]
+                if prev==True:
+                    return ans
+                prev=True
+            else:
+                prev=False
+        return ans+1
+        
