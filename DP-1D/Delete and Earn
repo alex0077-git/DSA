@@ -1,0 +1,13 @@
+class Solution:
+    def deleteAndEarn(self, nums: List[int]) -> int:
+        maxx=max(nums)
+        dp=[0]*(maxx+1)
+        for num in nums:
+            dp[num]+=num
+        prev1=0
+        prev=0
+        for i in range(maxx+1):
+            current=max(dp[i]+prev1,prev)
+            prev1=prev
+            prev=current
+        return prev
