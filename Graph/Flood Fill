@@ -1,0 +1,21 @@
+class Solution:
+    def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+        ogcolor=image[sr][sc]
+        if image[sr][sc]==color:
+            return image
+        image[sr][sc]=color
+        rows=len(image)
+        cols=len(image[0])
+        current=[(sr,sc)]
+        directions=[(0,1),(1,0),(0,-1),(-1,0)]
+
+        while current:
+            next=[]
+            for r,c in current:
+                for dr,dc in directions:
+                    nr,nc=r+dr,c+dc
+                    if 0<=nr<rows and 0<=nc<cols and image[nr][nc]==ogcolor:
+                        image[nr][nc]=color
+                        next.append((nr,nc))
+            current=next
+        return image
