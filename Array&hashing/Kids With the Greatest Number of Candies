@@ -1,0 +1,19 @@
+class Solution:
+    def kidsWithCandies(self, candies: list[int], extraCandies: int) -> list[bool]:
+        out=[]
+        n=len(candies)
+        for i in range(n):
+            l=candies[i]+extraCandies
+            out.append(l)
+        maxx=max(candies)
+        now=[]
+        for i in range(len(out)):
+            if out[i]<maxx:
+                now.append(False)
+            else:
+                now.append(True)
+        return now
+
+
+
+        
